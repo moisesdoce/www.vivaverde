@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <base href="#products">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VivaVerde - Produtos Naturais sustentáveis e frescos diretamente da nossa fazenda urbana. Ervas frescas, óleos essenciais, chás orgânicos e muito mais.">
+    <meta name="keywords" content="produtos naturais, fazenda urbana, ervas frescas, óleos essenciais, chás orgânicos, sustentabilidade">
+    <meta name="robots" content="index, follow">
+    <title>VivaVerde - Produtos Naturais</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f5f0;
+            color: #333;
+        }
+        header {
+            background-color: #4a7c59;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+        main {
+            padding: 2rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 1rem;
+        }
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .product-price {
+            font-weight: bold;
+            color: #4a7c59;
+            margin-top: 0.5rem;
+        }
+        footer {
+            background-color: #4a7c59;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav a {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+        .carousel {
+            display: flex;
+            overflow-x: scroll;
+            gap: 1rem;
+            padding: 2rem 0;
+        }
+        .carousel-item {
+            min-width: 250px;
+            flex-shrink: 0;
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #filters {
+            margin: 2rem 0;
+        }
+        #filters button {
+            background-color: #4a7c59;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+        #filters button:hover {
+            background-color: #36594a;
+        }
+        /* Google Maps */
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+        .review {
+            background-color: #eaf0ea;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/a/756a222e-f8e1-44ae-97ba-0bd131fc4b78" alt="VivaVerde Logo - A green tree with circular text" class="logo">
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#products">Produtos</a>
+            <a href="#about">Sobre Nós</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Página Inicial -->
+        <section id="home">
+            <h1>Bem-vindo à VivaVerde</h1>
+            <p>Conectamos você à natureza com produtos frescos e sustentáveis.</p>
+            <section id="featured-products">
+                <h2>Produtos em Destaque</h2>
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <img src="https://example.com/produto1.jpg" alt="Produto 1">
+                        <p>Produto 1</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://example.com/produto2.jpg" alt="Produto 2">
+                        <p>Produto 2</p>
+                    </div>
+                    <!-- Mais produtos aqui -->
+                </div>
+            </section>
+        </section>
+
+        <!-- Página Produtos -->
+        <section id="products">
+            <h1>Nossos Produtos Naturais</h1>
+            <p>Descubra o poder da natureza em cada um dos nossos produtos. Nosso diferencial vai além da prateleira.</p>
+
+            <div id="filters">
+                <button onclick="filterProducts('herbs')">Ervas</button>
+                <button onclick="filterProducts('oils')">Óleos</button>
+                <button onclick="filterProducts('teas')">Chás</button>
+                <button onclick="filterProducts('all')">Todos</button>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card" data-category="herbs">
+                    <img src="https://example.com/ervas-frescas.jpg" alt="Ervas frescas em vasos" class="product-image">
+                    <div class="product-info">
+                        <h2 class="product-title">Ervas Frescas</h2>
+                        <p class="product-description">Cultivadas em nossa fazenda urbana, nossas ervas frescas trazem sabor e saúde para sua cozinha.</p>
+                        <p class="product-price">R$ 5,99 / maço</p>
+                    </div>
+                </div>
+                <div class="product-card" data-category="oils">
+                    <img src="https://example.com/oleos-essenciais.jpg" alt="Frascos de óleos essenciais" class="product-image">
+                    <div class="product-info">
+                        <h2 class="product-title">Óleos Essenciais</h2>
+                        <p class="product-description">100% puros e naturais, nossos óleos essenciais são perfeitos para aromaterapia e cuidados pessoais.</p>
+                        <p class="product-price">A partir de R$ 29,90</p>
+                    </div>
+                </div>
+                <div class="product-card" data-category="teas">
+                    <img src="https://example.com/chas-organicos.jpg" alt="Variedade de chás orgânicos" class="product-image">
+                    <div class="product-info">
+                        <h2 class="product-title">Chás Orgânicos</h2>
+                        <p class="product-description">Blends exclusivos de chás orgânicos para todos os momentos do seu dia.</p>
+                        <p class="product-price">R$ 15,50 / 50g</p>
+                    </div>
+                </div>
+                <!-- Mais produtos podem ser adicionados aqui -->
+            </div>
+        </section>
+
+        <!-- Página Sobre Nós -->
+        <section id="about">
+            <h1>Sobre Nós</h1>
+            <h2>História da Fazenda Urbana</h2>
+            <p>Comece contando como surgiu a ideia da sua fazenda urbana. Quais foram os motivos que a levaram a ser criada? Fale sobre os fundadores e a paixão deles pela agricultura sustentável em meio à cidade.</p>
+            <h2>Missão e Propósito</h2>
+            <p>Nossa missão é cultivar alimentos frescos e saudáveis, promovendo a sustentabilidade e a conexão entre a cidade e a natureza.</p>
+            <h2>Técnicas Inovadoras</h2>
+            <p>Utilizamos técnicas como hidroponia e aquaponia, que contrib
